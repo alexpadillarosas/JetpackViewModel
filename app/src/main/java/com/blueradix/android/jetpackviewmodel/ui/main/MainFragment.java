@@ -49,13 +49,16 @@ public class MainFragment extends Fragment {
         binding.doubleItButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!binding.dollarTextInputEditText.getText().toString().equals("")){
-                    String amount = binding.dollarTextInputEditText.getText().toString();
+                if(!binding.amountTextInputEditText.getText().toString().equals("")){
+                    String amount = binding.amountTextInputEditText.getText().toString();
                     double total = Double.parseDouble(amount) * 2;
                     //update the view model
                     mViewModel.setTotal(String.valueOf(total));
                     //update the UI
                     binding.message.setText(mViewModel.getTotal().toString());
+                }else{
+                    mViewModel.setTotal("NO VALUE");
+                    binding.message.setText("NO VALUE");
                 }
             }
         });
