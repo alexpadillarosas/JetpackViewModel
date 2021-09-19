@@ -6,11 +6,11 @@ public class MainViewModel extends ViewModel {
     // TODO: Implement the ViewModel
     private String message = "";
 
-    public String getTotal() {
+    public String getMessage() {
         return message;
     }
 
-    public void setTotal(String total) {
-        this.message = total;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

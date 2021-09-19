@@ -8,12 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.blueradix.android.jetpackviewmodel.R;
 import com.blueradix.android.jetpackviewmodel.databinding.MainFragmentBinding;
-import com.google.android.material.textfield.TextInputEditText;
 
 public class MainFragment extends Fragment {
 
@@ -36,7 +32,6 @@ public class MainFragment extends Fragment {
 
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -44,7 +39,7 @@ public class MainFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         //set data into the UI component as soon as the View is created. To avoid errors, initialize the property total with an empty string.
         //update the UI setting a value to total when the app starts or restarts due to a Device Rotation
-        binding.message.setText(mViewModel.getTotal().toString());
+        binding.message.setText(mViewModel.getMessage());
 
         binding.doubleItButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,11 +48,11 @@ public class MainFragment extends Fragment {
                     String amount = binding.amountTextInputEditText.getText().toString();
                     double total = Double.parseDouble(amount) * 2;
                     //update the view model
-                    mViewModel.setTotal(String.valueOf(total));
+                    mViewModel.setMessage(String.valueOf(total));
                     //update the UI
-                    binding.message.setText(mViewModel.getTotal().toString());
+                    binding.message.setText(mViewModel.getMessage());
                 }else{
-                    mViewModel.setTotal("NO VALUE");
+                    mViewModel.setMessage("NO VALUE");
                     binding.message.setText("NO VALUE");
                 }
             }
