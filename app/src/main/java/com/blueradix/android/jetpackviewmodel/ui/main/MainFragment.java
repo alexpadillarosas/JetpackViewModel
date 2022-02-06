@@ -39,7 +39,7 @@ public class MainFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         //set data into the UI component as soon as the View is created. To avoid errors, initialize the property total with an empty string.
         //update the UI setting a value to total when the app starts or restarts due to a Device Rotation
-        binding.message.setText(mViewModel.getMessage());
+        binding.totalTextView.setText(mViewModel.getTotal());
 
         binding.doubleItButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +48,12 @@ public class MainFragment extends Fragment {
                     String amount = binding.amountTextInputEditText.getText().toString();
                     double total = Double.parseDouble(amount) * 2;
                     //update the view model
-                    mViewModel.setMessage(String.valueOf(total));
+                    mViewModel.setTotal(String.valueOf(total));
                     //update the UI
-                    binding.message.setText(mViewModel.getMessage());
+                    binding.totalTextView.setText(mViewModel.getTotal());
                 }else{
-                    mViewModel.setMessage("NO VALUE");
-                    binding.message.setText("NO VALUE");
+                    mViewModel.setTotal("NO VALUE");
+                    binding.totalTextView.setText("NO VALUE");
                 }
             }
         });

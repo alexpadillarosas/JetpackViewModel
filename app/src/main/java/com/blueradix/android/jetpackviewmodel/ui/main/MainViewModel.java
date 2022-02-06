@@ -4,13 +4,13 @@ import androidx.lifecycle.ViewModel;
 
 public class MainViewModel extends ViewModel {
     // TODO: Implement the ViewModel
-    private String message = "";
+    private String total = "";
 
-    public String getMessage() {
-        return message;
+    public String getTotal() {
+        return total;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setTotal(String total) {
+        this.total = total;
     }
 }
