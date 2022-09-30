@@ -1,10 +1,17 @@
 package com.blueradix.android.jetpackviewmodel.ui.main;
 
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
 
-public class MainViewModel extends ViewModel {
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+
+public class MainViewModel extends AndroidViewModel {
     // TODO: Implement the ViewModel
     private String total = "";
+
+    public MainViewModel(@NonNull Application application) {
+        super(application);
+    }
 
     public String getTotal() {
         return total;
